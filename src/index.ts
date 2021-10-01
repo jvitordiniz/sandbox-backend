@@ -5,6 +5,11 @@ import * as bodyParser from 'body-parser'
 import routes from './routes'
 
 const app = express()
+const cors = require('cors')
+app.use(cors({
+  origin: 'http://localhost:3311', // permissão frontend (usar '*' para tudo)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] // permitidos
+}))
 
 createConnection()
 
